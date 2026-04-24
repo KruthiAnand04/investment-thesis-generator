@@ -1,71 +1,49 @@
-# 🚀 KaroStartup – Automated Investment Thesis Generator
+# KaroStartup — Investment Thesis Generator
 
-> Upload a startup pitch deck → Get a structured AI-powered investment thesis PDF.
+An AI-powered pitch deck analyser that generates VC-grade investment thesis reports.
 
----
+## What it does
+- Upload a PPTX pitch deck
+- AI analyses it across 9 VC-grade categories
+- Get a scored report with strengths, weaknesses and recommendations
+- Download a PDF report
 
-## 📁 Repository Structure
+## Tech Stack
+- Frontend: React, Vite, Tailwind CSS
+- Backend: Node.js, Express
+- Database: PostgreSQL
+- AI: OpenAI GPT-4o-mini
+- Auth: JWT
 
-```
-karostartup-thesis-gen/
-├── frontend/        ← React 18 web app (your task)
-├── backend/         ← Node.js + Express API server
-├── shared/          ← Shared types/constants between frontend & backend
-└── README.md
-```
+## How to run this project
 
-## 👥 Team Split
+### 1. Clone the repo
+git clone https://github.com/KruthiAnand04/investment-thesis-generator.git
+cd investment-thesis-generator
 
-| Folder | Owner | Tech |
-|--------|-------|------|
-| `frontend/` | Frontend Dev | React 18, TailwindCSS |
-| `backend/` | Backend Dev | Node.js 20, Express 4, Python 3.11, PostgreSQL 15 |
-
----
-
-## 🔧 Getting Started
-
-### Prerequisites
-- Node.js 20+
-- Python 3.11+
-- PostgreSQL 15+
-
-### Clone
-```bash
-git clone https://github.com/YOUR_ORG/karostartup-thesis-gen.git
-cd karostartup-thesis-gen
-```
-
-### Frontend
-```bash
-cd frontend
-npm install
-cp .env.example .env        # fill in VITE_API_URL
-npm run dev
-```
-
-### Backend
-```bash
+### 2. Set up the Backend
 cd backend
 npm install
-cp .env.example .env        # fill in all secrets
+
+Then create a file called .env inside the backend folder and add:
+PORT=4000
+DATABASE_URL=postgresql://postgres:YOUR_POSTGRES_PASSWORD@localhost:5432/investment_thesis
+JWT_SECRET=any_random_secret_string
+OPENAI_API_KEY=your_openai_api_key_here
+
+Then run:
+npm run migrate
 npm run dev
-```
 
----
+### 3. Set up the Frontend
+cd ../frontend
+npm install
 
-## 🌿 Git Branching Convention
+Then create a file called .env inside the frontend folder and add:
+VITE_API_URL=http://localhost:4000
 
-```
-main              ← stable, deployable
-develop           ← integration branch (merge PRs here)
-feature/frontend-* ← all frontend work
-feature/backend-*  ← all backend work
-```
+Then run:
+npm run dev
 
-**Always open a PR to `develop`, never push directly to `main`.**
-
----
-
-## 📄 License
-Internal use only – KaroStartup © 2025
+### 4. Open the app
+Go to http://localhost:5173 in your browser
